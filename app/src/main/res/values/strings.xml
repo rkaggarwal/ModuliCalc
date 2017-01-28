@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">ModuliCalc</string>
+    <string name="welcome_message">Welcome to ModuliCalc!\n Click to get started:"</string>
+    <string name="button1">What is this...?</string>
+    <string name="button2">Let\'s calculate!</string>
+    <string name="button5"> Evaluate </string>
+    <string name="button6">Listen</string>
+    <string name="text1"> My sample is...</string>
+    <string name="text2"> Weight </string>
+    <string name="text3"> Length </string>
+    <string name="text4"> Width </string>
+    <string name="text5"> Height </string>
+    <string name="text6"> dominant freqs </string>
+    <string name="text7"> calculated value </string>
+    <string name="text8"> lbs</string>
+    <string name="text9"> oz </string>
+    <string name="text10"> ft</string>
+    <string name="text11"> in </string>
+    <string name="text12"> Fundamental </string>
+    <string name="text13"> Hz </string>
+    <string name="text14"> Diameter </string>
+    <string name="text15"> Torsional </string>
+    <string name="text16"> Geometry </string>
+    <string name="text17"> Frequency </string>
+    <string name="text18"> Sample </string>
+    <string name = "choose"> Choose </string>
+
+
+
+    <string-array name="SpecimenSpinner">
+            <item>Rectangular</item>
+            <item>Cylindrical</item>
+    </string-array>
+
+
+
+
+
+
+</resources>

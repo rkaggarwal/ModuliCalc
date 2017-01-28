@@ -1,0 +1,137 @@
+<style>
+
+    .hangingindent {
+  padding-left: 40px ;
+  text-indent: -40px ;
+}
+
+img{display: inline; height: auto; max-width: 100%;}
+
+
+
+</style>
+
+<html>
+<body>
+
+<font color="#757575">
+
+
+
+
+        <br/>
+        <center><b>What does this app do? </b></center>
+        <p>
+
+            This app is a tool to help compute the Elasticity Modulus, Shear Modulus and Poisson's Ratio of a material sample given only its geometric dimensions and weight. To do this it relies on the Impulse Excitation Technique (IET), which is a non-destructive method that exploits natural resonances to determine the characteristic engineering moduli of homogeneous, isotropic materials.  Below is some more background on how the app works, illustrations of proper techniques for good results, and tips for getting started.
+
+        </p><br/>
+
+        <center><b> Principle of Operation </b> </center>
+        <p>
+            For simple geometries, the first natural frequency of oscillation in the longitudinal and torsional directions can be directly related to the dynamic elasticity moduli of the material.  To quantify the frequency of oscillation, this app uses your phone's built-in microphone as a pressure transducer, and performs a real-time fast fourier transform (FFT) on the resulting sound input to determine dominant ambient frequencies.  The app will then perform the necessary calculations for you using either explicit or iterative methods, depending on part geometry.
+
+        </p><br/>
+
+
+
+        <center><b> Excitation  </b></center>
+        <p>
+            To read the proper frequencies of oscillation, it is very important that the test piece oscillates predictably.  Pieces that are not supported well or not excited at the anti-nodes do not yield good modes of vibrations, and cannot be analyzed to calculate moduli accurately.  Below are some tips for setting up your sample for optimal oscillation, as well as drawings showing part dimensions and supports.
+
+
+        </p><br/>
+
+
+        <center><b> Oscillation Procedure  </b></center><br/>
+        <i> Rectangular Parts </i> <br/>
+        <p>
+            For rectangular parts, there are two important frequencies: longitudinal and torsional.  To determine Young's modulus alone, only the longitudinal frequency is typically needed; and for the Shear Modulus, only the torsional.  However, sometimes due to the geometry both frequencies are needed to find one of the moduli, and at that point the calculator will let you know and just output all three parameters (E, G and Poisson's).  Figures 1 and 2 depict a typical setup for finding the longitudinal and torsional frequencies, respectively.
+        </p>
+        <center>
+            <figure>
+                <img src="rectangular_fundamental.jpg">
+                <figcaption><b>Figure 1:</b> Longitudinal Excitation of Rectangular Bars</figcaption>
+            </figure>
+        </center>
+
+        <p>
+            To properly excite the piece longitudinally, support the piece on a flat surface with two thin rollers (e.g. pencils, pens, gauge pins all work well).  The supports must be placed near .224*(Length) from either side of the piece, and must be relatively parallel to those sides.  To excite the piece, a small hammer, wrench or even pen can be used, and the point of excitation should be an anti-node (denoted by the <i>x</i>'s in <b>Figure 1</b>).  When listening for dominant frequencies, first tap the piece from the positive <i>z</i>-direction at an anti-node, and then place your phone's microphone as close as possible to that anti-node, being careful not to actually touch the part.
+        </p>
+
+
+        <center>
+            <figure>
+                <img src="rectangular_torsional.jpg">
+                <figcaption><b>Figure 2:</b> Torsional Excitation of Rectangular Bars</figcaption>
+            </figure>
+        </center>
+
+
+        <p>
+            For torsional excitation, the method is similar in nature but the set-up is slightly different.  This time the supports should be placed in both the <i>x</i> and <i>y</i> directions, essentially splitting the part up into 4 equal quadrants (when viewed from below).  Points (1), (2), (3) and (4) show locations of anti-nodes, and the procedure for tapping and listening is the same as before.  Be careful to note that the anti-nodes are located at a distance .224*(Length) from the edges.
+        </p> <br/>
+
+        <i> Cylindrical Parts </i><br/>
+        <p>
+            Cylindrical parts also have two primary frequencies – longitudinal and torsional – and the setup is shown below:
+        </p>
+
+    <center>
+        <figure>
+            <img src="cylindrical_fundamental.jpg">
+            <figcaption><b>Figure 3:</b> Longitudinal Excitation of Cylindrical Bars</figcaption>
+        </figure>
+    </center>
+
+        <p>
+            For longitudinal excitation, simply treat the rod as if it were a rectangular prism, and continue as before.  In <b>Figure 3</b>, numbers (1), (2) and (3) denote anti-nodes, which are all suitable for excitation.
+        </p>
+
+        <p>
+            Unfortunately, there is no easy way to torsionally excite a cylinder given standard resources; however, if you happen to know the torsional frequency off hand, you can type it in and the app will compute the Shear Modulus for you.
+
+
+        <br/><center><b> Frequency Identification  </b></center>
+        <p>
+            As mentioned above, this app has frequency identification capabilities built-in that use your microphone as a pressure transducer.  On the <b>Calculator</b> page simply press the "Listen" button when you want the app to search for dominant frequencies, and the text field will auto-populate if it finds anything persistent.  Sometimes, it can be quite difficult to identify frequencies however, due to limitations such as weak resonance, harmonic interference or unstable waveforms.  If this is the case, and the app is just telling you to "Try again," don't worry – there are other apps out there that specialize in microphone fast-fourier transforms, and show real-time plots of the frequency domain.  Simply search "Spectrum Analyzer" or "FFT" in the Play Store and a few are bound to come up.  From there, you can parse the dominant frequencies yourself, but be careful to not construe common electronic noise as an actual signal (frequencies near 50/60 Hz, 120Hz or 240Hz).  Also, make sure to choose the <i> lowest </i> harmonic frequency, as this app's equations are all based on the first harmonic. Lastly, be careful to record the precision of the frequency so that the final answer you use is realistically precise (for reference, this app's frequency resolution is 6 Hz).
+
+
+        </p>
+
+        <br/><center><b> Empirical Background  </b></center>
+        <p>
+            Finally, the formulas used by this app are largely derived from experiment, and can be found at [1] or on my <a href ="https://github.com/rkaggarwal/ModuliCalc/blob/master/Impulse_Excitation_Formulas.pdf">Github</a>.  Correction factors are typically applied to the explicit relations, and for certain geometries those factors are defined by the variables they are trying to correct; hence, in those cases guess-and-check iterative schemes are used.
+        </p>
+
+        <br/><b>References</b>
+        <p class = "hangingIndent">
+            [1] "Standard Test Method for Dynamic Young’s Modulus, Shear Modulus, and Poisson’s Ratio by Impulse Excitation of Vibration," ASTM International Standard E 1876 - 01 (2005). (<a href="http://forlab.pt/wp-content/uploads/2015/08/E1876_mvuj8965.pdf">Link</a>)
+            </p>
+        <p class = "hangingIndent">
+            [2] Demaine, Erik, "Lecture 3: Divide & Conquer: FFT," <i> MIT OpenCourseWare, </i> Course 6.046, Spring 2015 <a href = "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/">Link</a> (Last Accessed January 2017).
+            <p>
+
+        <p class = "hangingIndent">
+            [3] "Impulse Excitation Technique," <i> Wikipedia, </i> <a href = "https://en.wikipedia.org/wiki/Impulse_excitation_technique">Link</a> (Last Accessed January 2017).
+        <p>
+
+            <p>
+            <i> Und, eine gute (altes) Paper für meine deutschen Freunde: </i> <br/> </p>
+        <p class = "hangingIndent">
+            [4] Goens, E., "Über die Bestimmung des Elastizitätsmoduls von Stäben mit Hilfe von Biegungsschwingungen," <i> Annalen der Physik </i> 403 (6), s649 (1931).
+        </p>
+
+        <br/><b> Review and Contact </b> <br/>
+        <p>
+            If you like this app, please give me a shout <a href="market://details?id=com.rajan.apps.modulicalculator">here</a>! If not, I'd also like to know :).  Compliments, criticisms and suggestions are all welcome, and if you are having any persistent difficulties feel free to write me at <a href="mailto:rkaggar2@illinois.edu?subject=Moduli%20Calculator%20Inquiry" target="_top">rkaggar2@illinois.edu</a>. My hope is that this app will be a nice addition to your utilities toolbox, and help you in class, on the job, in the machine shop, or wherever you may be.  Happy Calculating!
+
+        </p>
+        <br/>
+        Full Source Code is available <a href ="https://github.com/rkaggarwal/ModuliCalc">here</a>.
+
+        <br/>
+        <p>&copy; Rajan Aggarwal, 2017 <br/> All Rights Reserved.</p>
+</font>
+</body>
+</html>

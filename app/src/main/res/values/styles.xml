@@ -1,0 +1,27 @@
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ButtonDesign1" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+
+    </style>
+
+    <style name="ButtonDesign2" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">#ffffff</item>
+    </style>
+
+</resources>
+
+
+
