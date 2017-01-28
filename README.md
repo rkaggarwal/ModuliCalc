@@ -1,2 +1,2 @@
 # ModuliCalculator
-Mobile application that determines the characteristic engineering moduli of material samples given only their dimensions and weight
+Calculates key engineering moduli of material samples with ease! Using your phone's microphone as a pressure transducer, this app identifies the resonant frequencies of excited material samples and uses them to calculate engineering parameters such as the Young's Modulus, Shear Modulus and Poisson Ratio.  Simply input the dimensions and mass of your sample, and the app will walk you through the rest!
